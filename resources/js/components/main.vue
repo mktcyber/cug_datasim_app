@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav class="navbar navbar-light bg-light">
-            <img :src="image" width="30" height="30" alt="">
+            <img :src="image" width="65" height="65" alt="">
         </nav>
         <router-view/>
     </div>

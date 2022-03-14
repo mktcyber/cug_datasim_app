@@ -23,8 +23,8 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-group">
-                            <label class="control-label">Employee CUG Number</label>
-                            <input type="text" v-model="employees.Employee_Cug_Number" class="form-control">
+                            <label class="control-label">Employee Datasim Number</label>
+                            <input type="text" v-model="employees.Employee_datasim_number" class="form-control">
                         </div>
                     </div>
                     <div class="row">
@@ -45,7 +45,7 @@
                 employees: {
                     Employee_id: '',
                     Employee_name: '',
-                    Employee_Cug_Number: '',
+                    Employee_cug_number: '',
                 }
             }
         },
@@ -53,9 +53,9 @@
             saveForm() {
                 var app = this;
                 var newEmployee = app.employees;
-                axios.post('/api/v1/employees', newEmployee)
+                axios.post('/api/datasims', newEmployee)
                     .then(function (resp) {
-                        app.$router.push({path: '/'});
+                        app.$router.push({path: '/datasim'});
                     })
                     .catch(function (resp) {
                         console.log(resp);

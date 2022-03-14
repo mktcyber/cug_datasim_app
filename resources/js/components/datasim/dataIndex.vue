@@ -1,10 +1,13 @@
 <template>
 <div>
+    <div class="form-group">
+        <router-link to="/welcome" class="btn btn-primary">Back</router-link>
+    </div>
 	<div class="form-group">
-		<router-link :to="{name: 'createEmployee'}" class="btn btn-success">Create new Employee</router-link>
+		<router-link :to="{name: 'create.datasim'}" class="btn btn-success">Create new Employee</router-link>
         
         <button class="btn btn-sm btn-primary" @click="print">Print</button>
-        <router-link :to="{name: 'importEmployee'}" class="col-md-12">import</router-link>
+        <!-- <router-link :to="{name: 'importEmployee'}" class="col-md-12">import</router-link> -->
 	</div>
 	<div class="panel panel-default">
 		<div id="print" class="panel-body">
@@ -13,7 +16,7 @@
 				<tr>
 				  <th>Employee ID</th>
 				  <th>Employee Name</th>
-				  <th>Employee CUG Number</th>
+				  <th>Employee Datasim Number</th>
                   <th>Actions</th>
 				</tr>
 			</thead>
@@ -21,9 +24,9 @@
 				<tr v-for="employee, index in employees" :key="index">
                     <td>{{ employee.Employee_id }}</td>
                     <td>{{ employee.Employee_name }}</td>
-                    <td>{{ employee.Employee_cug_number }}</td>
+                    <td>{{ employee.Employee_datasim_number }}</td>
                     <td>
-                        <router-link :to="{name: 'edit.cug', params: {id: employee.id}}" class="btn btn-xs btn-default">
+                        <router-link :to="{name: 'edit.datasim', params: {id: employee.id}}" class="btn btn-xs btn-default">
                             Edit
                         </router-link>
                         <a href="#" class="btn btn-xs btn-danger" v-on:click="deleteEntry(employee.id, index)">
@@ -48,7 +51,7 @@
         },
         mounted() {
             var app = this;
-            axios.get('/api/v1/employees')
+            axios.get('/api/datasims')
                 .then(function (resp) {
                     app.employees = resp.data;
                 })
@@ -61,7 +64,7 @@
             deleteEntry(Employee_id, index) {
                 if (confirm("Do you really want to delete it?")) {
                     var app = this;
-                    axios.delete('/api/v1/employees/' + Employee_id)
+                    axios.delete('/api/datasims/' + Employee_id)
                         .then(function (resp) {
                             app.employees.splice(index, 1);
                         })
@@ -80,5 +83,11 @@
 <style scoped>
     .col-md-12{
         margin-left: 200px;
+    }
+    .form-group{
+        margin-top:15px;
+    }
+    .back{
+        float: right;
     }
 </style>

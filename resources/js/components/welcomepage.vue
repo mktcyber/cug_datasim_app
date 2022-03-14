@@ -3,7 +3,7 @@
     <div class="container">
         <div class="cug">
             <div class="img">
-                <img :src="image1">
+                <img :src="image1" width="250" height="200">
             </div>
             <div>
                 <router-link :to="{name: 'cug'}" class="btn btn-success col-md-8">CUG</router-link>
@@ -15,7 +15,7 @@
                 <img :src="image2">
             </div>
             <div>
-                <router-link :to="{name: 'login'}" class="btn btn-success col-md-8">Data Sim</router-link>
+                <router-link :to="{name: 'datasim'}" class="btn btn-success col-md-8">Data Sim</router-link>
             </div>
         </div>
         </div>
@@ -26,7 +26,7 @@
 export default {
      data(){
         return{
-            image1:'/assets/imgs/sim.jpeg',
+            image1:'/assets/imgs/sim.jpg',
             image2:'/assets/imgs/datasim.jpeg',
         }
     }
@@ -37,10 +37,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 }
 
 .datasim{
-    margin-left: 20%;
+    margin-left: 15%;
 }
 
 

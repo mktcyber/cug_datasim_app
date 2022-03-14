@@ -1,5 +1,8 @@
 <template>
 <div>
+    <div class="back">
+        <router-link to="/welcome" class="btn btn-primary">Back</router-link>
+    </div>
 	<div class="form-group">
 		<router-link :to="{name: 'create.cug'}" class="btn btn-success">Create new Employee</router-link>
         
@@ -80,5 +83,11 @@
 <style scoped>
     .col-md-12{
         margin-left: 200px;
+    }
+    .form-group{
+        margin-top:15px;
+    }
+    .back{
+        float: right;
     }
 </style>

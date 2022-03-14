@@ -6,6 +6,8 @@ window.Vue = require('vue').default;
 import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 Vue.use(VueRouter);
+import VueHtmlToPaper from 'vue-html-to-paper';
+Vue.use(VueHtmlToPaper, options);
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
@@ -24,6 +26,19 @@ import {
     routes
 } from './routes';
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+const options = {
+    name: '_blank',
+    specs: [
+      'fullscreen=yes',
+      'titlebar=no',
+      'scrollbars=no',
+    ],
+    styles: [
+      'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css',
+      'https://unpkg.com/kidlat-css/css/kidlat.css'
+    ]
+  }
 
  
 

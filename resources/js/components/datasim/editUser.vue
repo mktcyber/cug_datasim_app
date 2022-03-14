@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="col-xs-12 form-group">
                             <label class="control-label">Employee CUG Number</label>
-                            <input type="text" v-model="employee.Employee_cug_number" class="form-control">
+                            <input type="text" v-model="employee.Employee_datasim_number" class="form-control">
                         </div>
                     </div>
                     <div class="row">
@@ -42,7 +42,7 @@
             let app = this;
             let id = app.$route.params.id;
             app.emp_id = id;
-            axios.get('/api/v1/employees/' + id)
+            axios.get('/api/datasims/' + id)
                 .then(function (resp) {
                     app.employee = resp.data;
                 })
@@ -65,9 +65,9 @@
                 event.preventDefault();
                 var app = this;
                 var newEmployee = app.employee;
-                axios.patch('/api/v1/employees/' + app.emp_id, newEmployee)
+                axios.patch('/api/datasims/' + app.emp_id, newEmployee)
                     .then(function (resp) {
-                        app.$router.replace('/');
+                        app.$router.replace('/datasim');
                     })
                     .catch(function (resp) {
                         console.log(resp);

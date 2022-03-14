@@ -42,7 +42,7 @@
             let app = this;
             let id = app.$route.params.id;
             app.emp_id = id;
-            axios.get('/api/cug/cugs/' + id)
+            axios.get('/api/cugs/' + id)
                 .then(function (resp) {
                     app.employee = resp.data;
                 })
@@ -65,9 +65,9 @@
                 event.preventDefault();
                 var app = this;
                 var newEmployee = app.employee;
-                axios.patch('/api/cug/cugs/' + app.emp_id, newEmployee)
+                axios.patch('/api/cugs/' + app.emp_id, newEmployee)
                     .then(function (resp) {
-                        app.$router.replace('/');
+                        app.$router.replace('/cug');
                     })
                     .catch(function (resp) {
                         console.log(resp);
