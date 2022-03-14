@@ -1,3 +1,8 @@
+//login route
+import login from './components/index.vue';
+
+//welcome page
+import welcomepage from './components/welcomepage.vue';
 //cug routes
 import cugHome from './components/cug/cugIndex.vue';
 import addCugUser from './components/cug/createUser.vue';
@@ -10,7 +15,20 @@ import editDatasimUser from './components/datasim/editUser.vue';
 import importDatasimUsers from './components/datasim/import.vue';
 
 export const routes = [
-    //datasim route
+    //login
+    {
+        name: 'login',
+        path: '/login',
+        component: login
+    },
+
+    {
+        name: 'welcome',
+        path: '/welcome',
+        component: welcomepage
+    },
+
+    //cug route
     {
         name: 'cug',
         path: '/cug',

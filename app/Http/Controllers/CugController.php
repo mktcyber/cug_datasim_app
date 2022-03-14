@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Cug;
 use Illuminate\Http\Request;
 
 class CugController extends Controller
@@ -13,7 +13,7 @@ class CugController extends Controller
      */
     public function index()
     {
-        //
+        return Cug::all();
     }
 
     /**
@@ -34,7 +34,8 @@ class CugController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $employee = Cug::create($request->all());
+        return $employee;
     }
 
     /**
@@ -45,7 +46,7 @@ class CugController extends Controller
      */
     public function show($id)
     {
-        //
+        return Cug::findOrFail($id);
     }
 
     /**
@@ -68,7 +69,10 @@ class CugController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $employee = Cug::findOrFail($id);
+        $employee->update($request->all());
+
+        return $employee;
     }
 
     /**
@@ -79,6 +83,8 @@ class CugController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = Cug::findOrFail($id);
+        $employee->delete();
+        return 'employee successfully deleted';
     }
 }

@@ -17,7 +17,7 @@ class CreateCugsTable extends Migration
             $table->id();
             $table->integer('Employee_id');
             $table->string('Employee_name');
-            $table->string('Employee_cug_nmuber');
+            $table->string('Employee_cug_number');
             $table->timestamps();
         });
     }

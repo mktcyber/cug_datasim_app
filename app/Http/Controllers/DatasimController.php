@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Datasim;
 use Illuminate\Http\Request;
 
 class DatasimController extends Controller
@@ -13,7 +13,7 @@ class DatasimController extends Controller
      */
     public function index()
     {
-        //
+        return Datasim::all();
     }
 
     /**
@@ -34,7 +34,8 @@ class DatasimController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $employee = Datasim::create($request->all());
+        return $employee;
     }
 
     /**
@@ -45,7 +46,7 @@ class DatasimController extends Controller
      */
     public function show($id)
     {
-        //
+        return Datasim::findOrFail($id);
     }
 
     /**
@@ -68,7 +69,10 @@ class DatasimController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $employee = Datasim::findOrFail($id);
+        $employee->update($request->all());
+
+        return $employee;
     }
 
     /**
@@ -79,6 +83,8 @@ class DatasimController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = Datasim::findOrFail($id);
+        $employee->delete();
+        return 'employee successfully deleted';
     }
 }
