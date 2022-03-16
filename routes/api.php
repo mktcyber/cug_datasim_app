@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CugController;
 use App\Http\Controllers\DatasimController;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('api')->group(function () {
     Route::resource('cugs', CugController::class);
-});
-
-Route::middleware('api')->group(function () {
     Route::resource('datasims', DatasimController::class);
 });
+
+route::post('register',[AuthController::class,'register']);
+route::post('login',[AuthController::class,'login']);
