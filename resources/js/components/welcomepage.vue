@@ -29,7 +29,8 @@ export default {
             image1:'/assets/imgs/sim.jpg',
             image2:'/assets/imgs/datasim.jpeg',
         }
-    }
+    },
+   
 }
 </script>
 <style scoped>

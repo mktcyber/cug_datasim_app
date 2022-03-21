@@ -39,7 +39,8 @@ export default {
     methods:{
         login(){
             axios.post('api/login',this.formData).then((response)=>{
-
+                localStorage.setItem('token', response.data)
+                this.$router.push('/welcome')
             }).catch((errors=>{
                 this.errors = errors.response.data.errors
             }))

@@ -22,10 +22,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::middleware('api')->group(function () {
-    Route::resource('cugs', CugController::class);
-    Route::resource('datasims', DatasimController::class);
-});
+// Route::middleware('auth:sanctum')->group(function () {
+//     Route::resource('cugs', CugController::class);
+//     Route::resource('datasims', DatasimController::class);
+// });
+Route::resource('cugs', CugController::class);
+Route::resource('datasims', DatasimController::class);
 
 route::post('register',[AuthController::class,'register']);
 route::post('login',[AuthController::class,'login']);
+Route::post('logout', [AuthController::class,'logout'])->middleware('auth:sanctum');

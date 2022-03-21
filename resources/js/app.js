@@ -9,11 +9,11 @@ Vue.use(VueRouter);
 import VueHtmlToPaper from 'vue-html-to-paper';
 Vue.use(VueHtmlToPaper, options);
 
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
@@ -22,9 +22,7 @@ Vue.use(IconsPlugin)
 
 import main from './components/main.vue';
 import axios from 'axios';
-import {
-    routes
-} from './routes';
+import routes from './routes';
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 const options = {
@@ -49,11 +47,38 @@ const options = {
  */
  Vue.use(VueAxios, axios)
 
- const router = new VueRouter({
-     mode: 'history',
-     routes: routes
- });
- 
+const router = new VueRouter(routes)
+
+function loggedIn(){
+  return localStorage.getItem('token')
+}
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+      // this route requires auth, check if logged in
+      // if not, redirect to login page.
+      if (!loggedIn()) {
+          next({
+          path: '/login',
+          query: { redirect: to.fullPath }
+          })
+      } else {
+          next()
+      }
+  } else if(to.matched.some(record => record.meta.guest)) {
+      if (loggedIn()) {
+          next({
+          path: '/welcome',
+          query: { redirect: to.fullPath }
+          })
+      } else {
+          next()
+      }
+  } else {
+      next() // make sure to always call next()!
+  }
+})
+
  const app = new Vue({
      el: '#app',
      router: router,

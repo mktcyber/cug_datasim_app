@@ -14,60 +14,92 @@ import addDatasimUser from './components/datasim/createUser.vue';
 import editDatasimUser from './components/datasim/editUser.vue';
 import importDatasimUsers from './components/datasim/import.vue';
 
-export const routes = [
+export default{ 
+    mode: 'history',
     //login
+    routes : [
+    
     {
         name: 'login',
         path: '/login',
-        component: login
+        component: login,
+        meta: {guest: true}
     },
 
     {
         name: 'welcome',
         path: '/welcome',
-        component: welcomepage
+        component: welcomepage,
+        meta: {
+            requiresAuth: true
+          }
     },
 
     //cug route
     {
         name: 'cug',
         path: '/cug',
-        component: cugHome
+        component: cugHome,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'create.cug',
         path: '/createCugUser',
-        component: addCugUser
+        component: addCugUser,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'edit.cug',
         path: '/editCugUser/:id',
-        component: editCugUser
+        component: editCugUser,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'import.cug',
         path: '/importCugUser',
-        component: importCugUsers
+        component: importCugUsers,
+        meta: {
+            requiresAuth: true
+          }
     },
 
     //datasim
     {name: 'datasim',
         path: '/datasim',
-        component: datasimHome
+        component: datasimHome,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'create.datasim',
         path: '/createDatasimUser',
-        component: addDatasimUser
+        component: addDatasimUser,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'edit.datasim',
         path: '/editDatasimUser/:id',
-        component: editDatasimUser
+        component: editDatasimUser,
+        meta: {
+            requiresAuth: true
+          }
     },
     {
         name: 'import.datasim',
         path: '/importDatasimUser',
-        component: importDatasimUsers
+        component: importDatasimUsers,
+        meta: {
+            requiresAuth: true
+          }
     },
-];
+]
+}

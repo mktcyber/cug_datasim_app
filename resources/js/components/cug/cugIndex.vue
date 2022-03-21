@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="back">
-        <router-link to="/welcome" class="btn btn-primary">Back</router-link>
+        <router-link to="/welcome" class="btn btn-primary">Home</router-link>
     </div>
 	<div class="form-group">
 		<router-link :to="{name: 'create.cug'}" class="btn btn-success">Create new Employee</router-link>
