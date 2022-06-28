@@ -20,7 +20,7 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
-import main from './components/main.vue';
+import index from './components/index.vue';
 import axios from 'axios';
 import routes from './routes';
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
@@ -82,7 +82,7 @@ router.beforeEach((to, from, next) => {
  const app = new Vue({
      el: '#app',
      router: router,
-     ...main
+     ...index
      
  });
 
