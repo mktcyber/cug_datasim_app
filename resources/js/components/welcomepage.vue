@@ -1,31 +1,34 @@
 <template>
     <div>
-         <div>
         <nav class="navbar navbar-light bg-light">
-            <img :src="image" width="65" height="65" alt="">
-            <button v-if="isLoggedIn" class="btn btn-danger" @click="logout">Logout</button>
+            <div class="ml-12">
+                <img :src="image" width="65" height="65" alt="">
+            </div>
+            <div class="mr-6">
+                <button v-if="isLoggedIn" class="btn btn-danger" @click="logout">Logout</button>
+            </div>
         </nav>
-    </div>
-    <div class="container">
-        <div class="cug">
-            <div class="img">
-                <img :src="image1" width="250" height="200">
+
+        <div class="container-fluid">
+            <div class="cug">
+                <div class="img">
+                    <img :src="image1" width="250" height="200">
+                </div>
+                <div>
+                    <router-link :to="{name: 'cug'}" class="btn btn-success col-md-8">CUG</router-link>
+                </div>
             </div>
-            <div>
-                <router-link :to="{name: 'cug'}" class="btn btn-success col-md-8">CUG</router-link>
+            <div class="datasim">
+                <div>
+                <div class="img">
+                    <img :src="image2">
+                </div>
+                <div>
+                    <router-link :to="{name: 'datasim'}" class="btn btn-success col-md-8">Data Sim</router-link>
+                </div>
+            </div>
             </div>
         </div>
-        <div class="datasim">
-            <div>
-            <div class="img">
-                <img :src="image2">
-            </div>
-            <div>
-                <router-link :to="{name: 'datasim'}" class="btn btn-success col-md-8">Data Sim</router-link>
-            </div>
-        </div>
-        </div>
-    </div>
     </div>
 </template>
 <script>
@@ -66,7 +69,7 @@ export default {
 }
 </script>
 <style scoped>
-    .container {
+    .container-fluid {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,12 +79,4 @@ export default {
 .datasim{
     margin-left: 15%;
 }
-.log{
-        margin-right:100px;
-    }
-.btn{
-        margin-right:100px;
-    }
-
-
 </style>

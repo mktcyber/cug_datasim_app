@@ -8,25 +8,25 @@
             <div class="panel-body">
                 <form v-on:submit.prevent="saveForm()">
                     <div class="row">
-                        <div class="col-xs-12 form-group">
+                        <div class="col-lg-4 form-group">
                             <label class="control-label">Employee Id</label>
                             <input type="text" v-model="employee.Employee_id" class="form-control">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 form-group">
+                        <div class="col-lg-4 form-group">
                             <label class="control-label">Employee Name</label>
                             <input type="text" v-model="employee.Employee_name" class="form-control">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 form-group">
+                        <div class="col-lg-4 form-group">
                             <label class="control-label">Employee CUG Number</label>
                             <input type="text" v-model="employee.Employee_datasim_number" class="form-control">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 form-group">
+                        <div class="col-lg-4 form-group">
                             <button class="btn btn-success">Update</button>
                         </div>
                     </div>

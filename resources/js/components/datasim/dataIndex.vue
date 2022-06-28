@@ -1,8 +1,10 @@
 <template>
 <div>
-    <div class="form-group">
-        <router-link to="/welcome" class="btn btn-primary">Home</router-link>
+    <div class="mt-4">
+        <router-link to="/welcome" class="btn btn-success">Back</router-link>
     </div>
+
+    <div class="p-6">
 	<div class="form-group">
 		<router-link :to="{name: 'create.datasim'}" class="btn btn-success">Create new Employee</router-link>
         
@@ -38,6 +40,7 @@
 			</table>
 		</div>
 	</div>
+    </div>
 </div>
 </template>
 
@@ -80,14 +83,3 @@
     }
 </script>
 
-<style scoped>
-    .col-md-12{
-        margin-left: 200px;
-    }
-    .form-group{
-        margin-top:15px;
-    }
-    .back{
-        float: right;
-    }
-</style>
