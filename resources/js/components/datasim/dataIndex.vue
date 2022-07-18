@@ -1,7 +1,10 @@
 <template>
 <div>
     <div class="mt-4">
-        <router-link to="/welcome" class="btn btn-success">Back</router-link>
+        <h1 class="d-flex justify-content-center">DATA SIM SECTION</h1>
+    </div>
+    <div class="mt-4">
+        <router-link to="/welcome" class="btn btn-success ml-4">Back</router-link>
     </div>
 
     <div class="p-6">

@@ -5,7 +5,7 @@
                 <img :src="image" width="65" height="65" alt="">
             </div>
             <div class="mr-6">
-                <button v-if="isLoggedIn" class="btn btn-danger" @click="logout">Logout</button>
+                <button v-if="isLoggedIn" class="btn btn-danger mr-2" @click="logout">Logout</button>
             </div>
         </nav>
 
